@@ -9,10 +9,10 @@ root.geometry("250x190")
 
 def apply_md5():
     print("MD5 function")
-    text_file = fd.askopenfilename(title="Open Text File", filtypes=(("Text Files", "*.txt"),))
+    text_file = fd.askopenfilename(title="Open Text File", filetypes=(("Text Files", "*.txt"),))
     print(text_file)
-    text_file = open(text_file, "r")
-    paragraph = text_file.read()
+    file = open(text_file, "r")
+    paragraph = file.read()
     hashed_data = hashlib.md5(paragraph.encode())
     hexd_data = hashed_data.hexdigest()
     md5_file = open("md5.txt", "w")
@@ -20,14 +20,14 @@ def apply_md5():
     md5_file.close()
 
 def apply_sha256():
-    text_file = fd.askopenfilename(title="Open Text File", filtypes=("Text Files", "*.txt"))
+    text_file = fd.askopenfilename(title="Open Text File", filetypes=(("Text Files", "*.txt"),))
     print(text_file)
-    text_file = open(text_file, "r")
-    paragraph = text_file.read()
+    file = open(text_file, "r")
+    paragraph = file.read()
     hashed_data = hashlib.sha256(paragraph.encode())
     hexd_data = hashed_data.hexdigest()
     sha256_file = open("sha256.txt", "w")
-    sha256_file_file.write(hexd_data)
+    sha256_file.write(hexd_data)
     sha256_file.close()
 
 btn1 = Button(root, text="Apply MD5", bg="SteelBlue1", command=apply_md5)
